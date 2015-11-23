@@ -1,38 +1,27 @@
-public class ExtraCredit {
+public class Coins {
 	
 	public static void main(String[] args) {
-		System.out.println(possibleCoins(10));
-		
+		System.out.println(possibleCoins(53));
 	}
 	
 	public static String possibleCoins(int coins) {
-		double c = coins;
-		int quarters = 0;
-		int dimes = 0;
-		int nickels = 0;
-		int pennies = 0;
+		int quarters = 0, dimes = 0, nickels = 0, pennies = 0;
 		
-		for(int q = 0; 25 <= coins; q++) {
-			coins -= 25;
+		for(int q = 0; q + 1 <= coins / 25; q++) {
 			quarters++;
-			for(int d = 0; 10 <= coins; d++) {
-				coins -= 10;
+			for(int d = 0; d + 1 <= coins / 10; d++) {
 				dimes++;
-				for(int n = 0; 5 <= coins; n++) {
-					coins -= 5;
+				System.out.println(dimes);
+				for(int n = 0; n + 1 <= coins / 5; n++) {
 					nickels++;
-					for(int p = 0; 1 <= coins; p++) {
-						coins--;
+					for(int p = 0; p + 1 <= coins / 1; p++) {
 						pennies++;
 					}
 				}
 			}
-			
-			
-
 		}
 		
-		return c + " cents = " + quarters + " quarters + " + dimes + " dimes + " + nickels + " nickels + " + pennies + " pennies"; 
+		return coins + " cents = " + quarters + " quarters + " + dimes + " dimes + " + nickels/10 + " nickels + " + pennies / 100 + " pennies"; 
 		
 	}
 	
